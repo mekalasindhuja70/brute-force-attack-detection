@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brute Force Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Brute Force Attack Detection</h2>
+        <form method="post" action="/">
+            <label>Destination Port:</label>
+            <input type="number" step="any" name="Destination_Port" required>
+
+            <label>Flow Duration:</label>
+            <input type="number" step="any" name="Flow_Duration" required>
+
+            <label>Total Fwd Packets:</label>
+            <input type="number" step="any" name="Total_Fwd_Packets" required>
+
+            <label>Fwd Packet Length Mean:</label>
+            <input type="number" step="any" name="Fwd_Packet_Length_Mean" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">{{ prediction }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
